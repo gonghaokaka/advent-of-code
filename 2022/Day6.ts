@@ -16,7 +16,7 @@ for (let r=0; r<line.length; r++){
         seen[charidx] = r
         count += 1
         
-        if (count == 14) { // part = 4
+        if (count == 14) { // part1 = 4
             console.log(r + 1)
             break
         }
@@ -26,7 +26,7 @@ for (let r=0; r<line.length; r++){
         l = seen[charidx] + 1
         count = r - l + 1
         
-        // recreate seen
+        // recreate seen    
         seen = Array(26).fill(-1)
         for (let i=l; i < r+1; i++){
             seen[line[i].charCodeAt(0)-97] = i
