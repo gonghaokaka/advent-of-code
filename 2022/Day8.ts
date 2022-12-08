@@ -15,19 +15,13 @@ for (let i=0; i < lines.length; i++) {
 }
 
 
-const seenBefore = (x, y) => {
-    return visable[x][y] == 1
-}
-
 for (let i=0; i<matrix.length; i++){
     let prevHigh = -1
     // count from left to right
     for (let j=0; j<matrix[i].length; j++){
         if (matrix[i][j] > prevHigh){
             prevHigh = matrix[i][j]
-            if (!seenBefore(i,j)){
-                visable[i][j] = 1
-            }
+            visable[i][j] = 1
             continue
         }
     }
@@ -39,9 +33,7 @@ for (let i=0; i<matrix.length; i++){
 
         if (matrix[i][k] > prevHigh){
             prevHigh = matrix[i][k]
-            if (!seenBefore(i,k)){
-                visable[i][k] = 1
-            }
+            visable[i][k] = 1
             continue
         }
     }
@@ -55,9 +47,7 @@ for (let i=0; i < matrix[0].length; i++) {
     for (let j=0; j< matrix.length; j++){
         if (matrix[j][i] > prevHigh){
             prevHigh = matrix[j][i]
-            if (!seenBefore(j, i)){
-                visable[j][i] = 1
-            }
+            visable[j][i] = 1
         }
     }
 
@@ -67,9 +57,7 @@ for (let i=0; i < matrix[0].length; i++) {
         const k = matrix.length - j -1
         if (matrix[k][i] > prevHigh){
             prevHigh = matrix[k][i]
-            if (!seenBefore(k,i)){
-                visable[k][i] = 1
-            }
+            visable[k][i] = 1
         }
     }
 }
@@ -80,6 +68,7 @@ const part1 = visable.reduce((total, rows) => {
     },0)
 }, 0)
 
+console.log(part1)
 
 let part2 = 0
 
